@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 const routes: Routes = [] ;
@@ -16,6 +17,7 @@ const routes: Routes = [] ;
     NavbarComponent,
     RestaurationComponent,
     UtilisateurComponent,
+    ReservationComponent,
 
   ],
   imports: [
