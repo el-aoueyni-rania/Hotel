@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 
 const routes: Routes = [] ;
@@ -14,6 +15,7 @@ const routes: Routes = [] ;
     AppComponent,
     NavbarComponent,
     RestaurationComponent,
+    UtilisateurComponent,
 
   ],
   imports: [
