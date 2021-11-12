@@ -8,6 +8,7 @@ import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { ActiviteComponent } from './activite/activite.component';
 
 
 const routes: Routes = [] ;
@@ -18,6 +19,7 @@ const routes: Routes = [] ;
     RestaurationComponent,
     UtilisateurComponent,
     ReservationComponent,
+    ActiviteComponent,
 
   ],
   imports: [
