@@ -5,6 +5,7 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ActiviteComponent } from './activite/activite.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -12,12 +13,20 @@ const routes: Routes = [
   { path: 'utilisateur', component: UtilisateurComponent },
   {path: 'reservation', component: ReservationComponent},
   {path: 'activite', component: ActiviteComponent},
+  {path: '**', component: NotFoundComponent}
   
 ] ;
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: [
+    RestaurationComponent,
+    UtilisateurComponent,
+    ReservationComponent,
+    ActiviteComponent,
+    HomeComponent
+  ]
 })
 export class AppRoutingModule { 
   

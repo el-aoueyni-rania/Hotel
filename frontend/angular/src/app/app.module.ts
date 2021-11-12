@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 // import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 // import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 // import { ReservationComponent } from './reservation/reservation.component';
 // import { ActiviteComponent } from './activite/activite.component';
@@ -17,6 +18,7 @@ const routes: Routes = [] ;
   declarations: [
     AppComponent,
     NavbarComponent,
+    NotFoundComponent,
     // RestaurationComponent,
     // UtilisateurComponent,
     // ReservationComponent,
