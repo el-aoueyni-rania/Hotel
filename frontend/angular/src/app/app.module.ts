@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RestaurationComponent } from './restauration/restauration.component';
+// import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ActiviteComponent } from './activite/activite.component';
+// import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+// import { ReservationComponent } from './reservation/reservation.component';
+// import { ActiviteComponent } from './activite/activite.component';
+// import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [] ;
@@ -16,10 +17,11 @@ const routes: Routes = [] ;
   declarations: [
     AppComponent,
     NavbarComponent,
-    RestaurationComponent,
-    UtilisateurComponent,
-    ReservationComponent,
-    ActiviteComponent,
+    // RestaurationComponent,
+    // UtilisateurComponent,
+    // ReservationComponent,
+    // ActiviteComponent,
+    // HomeComponent,
 
   ],
   imports: [
