@@ -10,19 +10,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo Interactive',
+      title: 'Hotel',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Hotel La Cigale Tabarka'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
+
   final String title;
 
   @override
@@ -30,78 +32,100 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _iconbutton = Icon(Icons.favorite_border, color: Colors.white,);
-  var _like = false;
-  var _displayed = 'HomeSelected';
-  var _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return (
-    Scaffold(
+
+    return Scaffold(
       appBar: AppBar(
-        title: Text('InteractiveApp'),
+        title: Text(widget.title),
         backgroundColor: Colors.indigoAccent,
-        actions: [
-          IconButton(onPressed: _setLike, icon: _iconbutton)
-        ],
       ),
-      body: Center(child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('$_displayed', style: TextStyle(fontSize: 40)),],)
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _setLike,
-        backgroundColor: Colors.indigoAccent,
-        child: _iconbutton),
+
+      body:GridView.count(
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 0.9,
+        crossAxisCount: 2,
+          children: [
+                  Card(
+                    child: Column(
+                      children: [
+                        Image(image: AssetImage('images/chm4.jpg'),),
+                        ListTile(
+                          title: Text("Chambres et suites",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    ),
+          ),
+            Card(
+              child: Column(
+                children: [
+                  Image(image: AssetImage('images/rest3.png'),),
+                  ListTile(
+                    title: Text("Restaurants et Bars",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+            ),
+
+            Card(
+              child: Column(
+                children: [
+                  Image(image: AssetImage('images/reun.png'),),
+                  ListTile(
+                    title: Text("Réunions et Evenements",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+            ),
+            Card(
+              child: Column(
+                children: [
+                  Image(image: AssetImage('images/spa3.jpg'),),
+                  ListTile(
+                    title: Text("Thalasso et SPA",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+            ),
+            Card(
+              child: Column(
+                children: [
+                  Image(image: AssetImage('images/golf4.jpg'),),
+                  ListTile(
+                    title: Text("Golf",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+            ),
+            Card(
+              child: Column(
+                children: [
+                  Image(image: AssetImage('images/stade.png'),),
+                  ListTile(
+                    title: Text("Complexe Sportif",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+            ),
+        ],),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-    bottomNavigationBar: BottomNavigationBar(items: [BottomNavigationBarItem(icon:
-                                                     Icon(Icons.home , color: Colors.white),
-                                                     label: 'Home'),
-                                                     BottomNavigationBarItem(icon:
-                                                     Icon(Icons.settings , color: Colors.white),
-                                                     label: 'Settings'),
-                                                     BottomNavigationBarItem(icon:
-                                                     Icon(Icons.account_circle , color: Colors.white),
-                                                     label: 'Account')],
-                        backgroundColor: Colors.indigoAccent,
-                        currentIndex: _currentIndex,
-                        onTap: _setDisplayed,
+      bottomNavigationBar: new Theme(
+    data: Theme.of(context).copyWith(
+    canvasColor: Colors.indigoAccent,),
+    child: new BottomNavigationBar(
+    type: BottomNavigationBarType.fixed,
+    currentIndex: 0,
+        items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home , color: Colors.white), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.account_circle , color: Colors.white), label: 'Users'),
+        BottomNavigationBarItem(icon: Icon(Icons.add , color: Colors.white), label: 'Reservations'),
+        BottomNavigationBarItem(icon: Icon(Icons.local_activity , color: Colors.white), label: 'Activities'),
+        BottomNavigationBarItem(icon: Icon(Icons.restaurant , color: Colors.white), label: 'Restaurants'),
+      ],
     ),
-    )
+      ),
     );
-
-  }
-
-
-  void _setLike() {
-    setState(() {
-      if(_like){
-        _like = false;
-        _iconbutton = Icon(Icons.favorite_border, color: Colors.white,);
-      }
-      else{
-        _like = true;
-        _iconbutton = Icon(Icons.favorite, color: Colors.white,);
-      }
-    });
-  }
-
-  void _setDisplayed(int index) {
-    setState(() {
-    switch (index){
-      case 0:
-        _displayed = 'HomeSelected';
-        _currentIndex = 0;
-        break;
-      case 1:
-        _displayed = 'SettingSelected';
-        _currentIndex = 1;
-        break;
-      case 2:
-        _displayed = 'AccountSelected';
-        _currentIndex = 2;
-        break;
-    }
-    });
   }
 }
