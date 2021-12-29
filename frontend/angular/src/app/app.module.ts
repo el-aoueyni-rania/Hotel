@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 // import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+//import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 // import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 // import { ReservationComponent } from './reservation/reservation.component';
 // import { ActiviteComponent } from './activite/activite.component';
@@ -21,6 +22,7 @@ const routes: Routes = [] ;
     AppComponent,
     NavbarComponent,
     NotFoundComponent,
+   // ReservationdetailsComponent,
     // RestaurationComponent,
     // UtilisateurComponent,
     // ReservationComponent,

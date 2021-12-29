@@ -1,6 +1,6 @@
 export interface Reservation {
 
-    id : number;
+    id : string;
     clientname :string;
     datearrivee :string;
     nbrnuits : number;
