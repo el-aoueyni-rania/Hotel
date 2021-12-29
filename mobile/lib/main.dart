@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/home.dart';
 import 'package:mobile/reservation.dart';
+import 'package:mobile/restauration.dart';
 import 'package:http/http.dart';
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
 int _currentIndex=0;
 final List<Widget> _children =[
   home(),
-  reservation()
+  reservation(),
+  restauration()
 
 ];
 
@@ -70,10 +72,10 @@ void onTappedBar(int index){
         items: [
         BottomNavigationBarItem(icon: Icon(Icons.home , color: Colors.white), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.add , color: Colors.white), label: 'Reservations'),
-
+          BottomNavigationBarItem(icon: Icon(Icons.restaurant , color: Colors.white), label: 'Restaurations'),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle , color: Colors.white), label: 'Users'),
         BottomNavigationBarItem(icon: Icon(Icons.local_activity , color: Colors.white), label: 'Activities'),
-        BottomNavigationBarItem(icon: Icon(Icons.restaurant , color: Colors.white), label: 'Restaurants'),
+        
       ],
     ),
       ),
