@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:mobile/home.dart';
+import 'package:mobile/reservation.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -33,6 +34,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+
+int _currentIndex=0;
+final List<Widget> _children =[
+  home(),
+  reservation()
+
+];
+
+void onTappedBar(int index){
+
+  setState(() {
+    _currentIndex = index;
+  });
+}
+
   @override
   Widget build(BuildContext context) {
 
@@ -42,85 +58,19 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.indigoAccent,
       ),
 
-      body:GridView.count(
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-        childAspectRatio: 0.9,
-        crossAxisCount: 2,
-          children: [
-                  Card(
-                    child: Column(
-                      children: [
-                        Image(image: AssetImage('images/chm4.jpg'),),
-                        ListTile(
-                          title: Text("Chambres et suites",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
-                      ],
-                    ),
-          ),
-            Card(
-              child: Column(
-                children: [
-                  Image(image: AssetImage('images/rest3.png'),),
-                  ListTile(
-                    title: Text("Restaurants et Bars",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
-            ),
-
-            Card(
-              child: Column(
-                children: [
-                  Image(image: AssetImage('images/reun.png'),),
-                  ListTile(
-                    title: Text("Réunions et Evenements",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                children: [
-                  Image(image: AssetImage('images/spa3.jpg'),),
-                  ListTile(
-                    title: Text("Thalasso et SPA",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                children: [
-                  Image(image: AssetImage('images/golf4.jpg'),),
-                  ListTile(
-                    title: Text("Golf",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                children: [
-                  Image(image: AssetImage('images/stade.png'),),
-                  ListTile(
-                    title: Text("Complexe Sportif",textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
-                ],
-              ),
-            ),
-        ],),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      body:_children[_currentIndex],
       bottomNavigationBar: new Theme(
     data: Theme.of(context).copyWith(
     canvasColor: Colors.indigoAccent,),
     child: new BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
-    currentIndex: 0,
+        onTap: onTappedBar,
+        currentIndex: _currentIndex,
         items: [
         BottomNavigationBarItem(icon: Icon(Icons.home , color: Colors.white), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.account_circle , color: Colors.white), label: 'Users'),
-        BottomNavigationBarItem(icon: Icon(Icons.add , color: Colors.white), label: 'Reservations'),
+          BottomNavigationBarItem(icon: Icon(Icons.add , color: Colors.white), label: 'Reservations'),
+
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle , color: Colors.white), label: 'Users'),
         BottomNavigationBarItem(icon: Icon(Icons.local_activity , color: Colors.white), label: 'Activities'),
         BottomNavigationBarItem(icon: Icon(Icons.restaurant , color: Colors.white), label: 'Restaurants'),
       ],
@@ -129,3 +79,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
