@@ -2,10 +2,11 @@
 <!-- <p> reservationName : <strong>{{reservation.clientname}}</strong></p> -->
 <main>
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
+    <section class=" text-center container">
+      <div >
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Liste des reservations</h1>
+          <hr>
         </div>
       </div>
     </section>
@@ -26,7 +27,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button routerLink="/reservation/{{reservationslist[0].id}}" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
+                    <button (click)="addToArchive(reservationslist[0].id)"type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
                   </div>
                   
                 </div>

@@ -1,15 +1,22 @@
-<p>Détails de reservation :</p>
+<h3>Détails de reservation :</h3>
 
-
+<hr>
 <div class="card" style="width: 18rem;">
     <div class="card-header">
-Reservation :{{getId()}}    
+        <strong>Reservation :</strong>{{reservation?.id}}    
 </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"> Nombre de nuits :{{getNbrNuits()}}</li>
-      <li class="list-group-item">Nombre de chambres :{{getNbrChambres()}}</li>
-      <li class="list-group-item">Nombre d'adultes :{{getNbrAdultes()}}</li>
-      <li class="list-group-item">Nombre d'enfants :{{getNbrEnfants()}}</li>
+      <li class="list-group-item"> <strong>Nombre de nuits :</strong>{{reservation?.nbrnuits}}</li>
+      <li class="list-group-item"><strong>Nombre de chambres : </strong>{{reservation?.nbrchambres}}</li>
+      <li class="list-group-item"><strong>Nombre d'adultes : </strong>{{reservation?.nbradultes}}</li>
+      <li class="list-group-item"><strong>Nombre d'enfants : </strong>{{reservation?.nbrenfants}}</li>
 
     </ul>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button routerLink="/reservations" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
+          <button (click)="addToArchive(reservationslist[0].id)"type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
+        </div>
+        
+      </div>
   </div>

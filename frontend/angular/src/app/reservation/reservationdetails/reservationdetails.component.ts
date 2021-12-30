@@ -10,7 +10,7 @@ import {  reservations } from "src/app/reservations-list";
 })
 export class ReservationdetailsComponent implements OnInit {
 
-  private reservation: Reservation | undefined;
+  public reservation: Reservation | undefined;
 
   constructor( private route: ActivatedRoute) { }
 
@@ -23,22 +23,28 @@ export class ReservationdetailsComponent implements OnInit {
 
     });
   }
-  getNbrEnfants(): Number{
-    return this.reservation ? this.reservation.nbrenfants :0;
 
-  }
-  getNbrNuits(): Number{
-    return this.reservation ? this.reservation.nbrnuits :0;
+  public addToArchive(id?: String): void {
 
-  }getId(): string{
-    return this.reservation ? this.reservation.id:"";
+  console.log(id);
 
-  }getNbrAdultes(): Number{
-    return this.reservation ? this.reservation.nbradultes :0;
+ }
+  // getNbrEnfants(): Number{
+  //   return this.reservation ? this.reservation.nbrenfants :0;
 
-  }getNbrChambres(): Number{
-    return this.reservation ? this.reservation.nbrchambres:0;
+  // }
+  // getNbrNuits(): Number{
+  //   return this.reservation ? this.reservation.nbrnuits :0;
 
-  }
+  // }getId(): string{
+  //   return this.reservation ? this.reservation.id:"";
+
+  // }getNbrAdultes(): Number{
+  //   return this.reservation ? this.reservation.nbradultes :0;
+
+  // }getNbrChambres(): Number{
+  //   return this.reservation ? this.reservation.nbrchambres:0;
+
+  // }
 
 }

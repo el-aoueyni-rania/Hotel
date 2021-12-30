@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LocalStorageService } from "src/app/services/local-storage.service";
+
 import reservations from "./../reservations-list";
 
 import { Reservation } from "./../reservation.model";
@@ -13,6 +15,8 @@ export class ReservationComponent implements OnInit {
 
   public reservationslist: Reservation[]= reservations;
 
+public archiveContent: any[] =[];
+
   // public reservation ={
   //   clientname :"aya",
   //   datearrivee :"10-04-2000",
@@ -24,11 +28,23 @@ export class ReservationComponent implements OnInit {
 
   // };
 
-  constructor() { }
+  constructor(
+    private localStorageService: LocalStorageService
+  ) { }
 
   ngOnInit(): void {
 
-    //console.log(this.reservationslist);
+this.archiveContent = this.localStorageService.get('archive');
+//console.log(this.reservationslist)
   }
 
+  public addToArchive(id: String): void {
+
+   // this.archiveContent.filter(elem => elem.id == id)[0] ? this.archiveContent.filter(elem => elem.id)[0].sortie ++ : this.archiveContent.push({id: id, sortie:1});
+ 
+if(!this.archiveContent.filter(elem => elem.id == id)[0])
+this.archiveContent.push({id: id, sortie: true});
+
+this.localStorageService.set('service',this.archiveContent);
+}
 }

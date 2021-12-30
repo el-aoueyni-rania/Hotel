@@ -7,6 +7,7 @@ import { ActiviteComponent } from './activite/activite.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'utilisateur', component: UtilisateurComponent },
   {path: 'reservation', component: ReservationComponent},
   {path: 'reservation/:id', component: ReservationdetailsComponent},
+  {path: 'archive', component: ArchiveComponent},
 
   {path: 'activite', component: ActiviteComponent},
   {path: '**', component: NotFoundComponent}
