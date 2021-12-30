@@ -15,7 +15,7 @@
     <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
           <button routerLink="/reservations" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
-          <button (click)="addToArchive(reservationslist[0].id)"type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
+          <button (click)="addToArchive(reservation?.id)"type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
         </div>
         
       </div>
