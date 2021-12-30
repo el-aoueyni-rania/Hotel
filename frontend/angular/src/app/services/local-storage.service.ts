@@ -8,6 +8,7 @@ export class LocalStorageService {
   constructor() { }
 
   get (itemName: string){
+    console.log(itemName);
 return JSON.parse(localStorage.getItem(itemName) || '') || [];
   }
 

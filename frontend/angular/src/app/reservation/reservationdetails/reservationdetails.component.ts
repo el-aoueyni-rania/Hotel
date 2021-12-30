@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute} from "@angular/router";
+import { ArchiveService } from "src/app/services/archive.service";
 import { Reservation } from 'src/app/reservation.model';
 import {  reservations } from "src/app/reservations-list";
 
@@ -10,9 +11,11 @@ import {  reservations } from "src/app/reservations-list";
 })
 export class ReservationdetailsComponent implements OnInit {
 
-  public reservation: Reservation | undefined;
+  public reservation?: Reservation;
 
-  constructor( private route: ActivatedRoute) { }
+  constructor( private route: ActivatedRoute,
+    private archiveService: ArchiveService
+    ) { }
 
   ngOnInit(): void {
 
@@ -24,9 +27,9 @@ export class ReservationdetailsComponent implements OnInit {
     });
   }
 
-  public addToArchive(id?: String): void {
+  public addToArchive(): void {
 
-  console.log(id);
+    this.archiveService.add(this.reservation?.id);
 
  }
   // getNbrEnfants(): Number{
