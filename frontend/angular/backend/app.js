@@ -1,8 +1,11 @@
 const express = require ('express');
 
 const mongoose =require('mongoose');
+const Reservation = require('./models/Reservation');
+
 
 const app= express();
+
 
 mongoose.connect('mongodb://localhost:27017/Hotel',
   { useNewUrlParser: true,
@@ -21,56 +24,10 @@ app.use((req,res,next)=> {
 
 app.get('/api/reservations',(req, res)=>{
    
-    const reservations = [
-        {    
-            id : "1",
-            clientname :"aya",
-            datearrivee :"10-04-2000",
-            nbrnuits : 4,
-            nbrenfants : 3,
-            nbradultes : 2,
-            nbrchambres : 4,
-        },
-        {    
-            id :"2",
-            clientname :"aya",
-            datearrivee :"10-04-2000",
-            nbrnuits : 4,
-            nbrenfants : 3,
-            nbradultes : 2,
-            nbrchambres : 4,
-        },
-        {
-            id :"3",
-            clientname :"aya",
-            datearrivee :"10-04-2000",
-            nbrnuits : 4,
-            nbrenfants : 3,
-            nbradultes : 2,
-            nbrchambres : 4,
-        },
-        {
-            id :"4",
-            clientname :"aya",
-            datearrivee :"10-04-2000",
-            nbrnuits : 4,
-            nbrenfants : 3,
-            nbradultes : 2,
-            nbrchambres : 4,
-        },
-        {   
-             id :"5",
-            clientname :"aya",
-            datearrivee :"10-04-2000",
-            nbrnuits : 4,
-            nbrenfants : 3,
-            nbradultes : 2,
-            nbrchambres : 4,
-        },
-    
-    ];
+    Reservation.find()
+       .then(reservations => res.status(200).json(reservations))
+       .catch(err => res.status(400).json({error: err.message}));
 
-    res.json(reservations);
 });
 
 module.exports =app;
