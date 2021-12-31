@@ -7,8 +7,11 @@ import reservations from '../reservations-list';
 })
 export class ReservationService {
 
-  private apiUrl = "http://localhost:3000/reservations"
+  //private apiUrl = "http://localhost:3000/reservations"
 
+  private apiUrl = "http://localhost:3000/api/reservations"
+ 
+ 
   //private apiUrl = "https://my-json-server.typicode.com/eya-ghazouani/public-reservations-api/reservations";
 
   constructor( private http: HttpClient) { }
