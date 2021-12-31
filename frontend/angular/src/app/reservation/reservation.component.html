@@ -1,1 +1,165 @@
-<h1>reservation works!</h1>
+<!-- <h1>reservation works!</h1> -->
+<!-- <p> reservationName : <strong>{{reservation.clientname}}</strong></p> -->
+<main>
+
+    <section class=" text-center container">
+      <div >
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Liste des reservations</h1>
+          <hr>
+        </div>
+      </div>
+    </section>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter</button>
+
+    <div class="album py-5 bg-light">
+
+      <div class="container">
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"    >
+    
+          <div class="col" *ngFor="let reservation of reservationslist"  >
+            
+            <div class="card shadow-sm">
+
+              <div class="card-body">
+
+
+                <label  class="card-text">Reservation numéro : {{reservation.id}}</label><br>
+                <label  class="card-text">Nom de client est: {{reservation.clientname}}</label>
+                <label  class="card-text">Nombre des personnes est: {{totalPersonnes}}</label>
+
+                <small class="text-muted"><label  class="card-text">Date d'arrivée est : {{reservation.datearrivee}}</label>
+                </small>
+                <br>
+                <br>
+                  <div class="btn-group">
+                    <button (click)="modifier(reservation)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModall">Modifier</button>
+                    <button (click)="supprimer(reservation.id)"type="button" class="btn btn-danger">Supprimer</button>
+
+                </div>
+                <hr>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button routerLink="/reservation/{{reservation.id}}" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
+                    <button (click)="addToArchive(reservation.id)"type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
+                
+                  </div>
+                  
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Détails de Reservation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form  #myForm="ngForm">
+          <div class="mb-3">
+            <label  class="form-label" >Nom de client</label>
+            <input type="text" class="form-control"  name="clientname" ngModel>
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Date d'arrivée</label>
+            <input type="text" class="form-control" name="datearrivee" ngModel>
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre de nuits</label>
+            <input type="number" class="form-control" name="nbrnuits" ngModel>
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre d'enfants</label>
+            <input type="number" class="form-control" name="nbrenfants" ngModel>
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre d'adultes</label>
+            <input type="number" class="form-control" name="nbradultes" ngModel>
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre de chambres</label>
+            <input type="number" class="form-control" name="nbrchambres" ngModel>
+          </div>
+
+          
+
+         
+         
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)=ajouter(myForm.value)>Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier la Reservation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form  #myForm="ngForm">
+          <div class="mb-3">
+            <label  class="form-label" >Nom de client</label>
+            <input type="text" class="form-control"  name="clientname" [(ngModel)]="reservationObj.clientname">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Date d'arrivée</label>
+            <input type="text" class="form-control" name="datearrivee" [(ngModel)]="reservationObj.datearrivee">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre de nuits</label>
+            <input type="number" class="form-control" name="nbrnuits" [(ngModel)]="reservationObj.nbrnuits">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre d'enfants</label>
+            <input type="number" class="form-control" name="nbrenfants" [(ngModel)]="reservationObj.nbrenfants">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre d'adultes</label>
+            <input type="number" class="form-control" name="nbradultes" [(ngModel)]="reservationObj.nbradultes">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre de chambres</label>
+            <input type="number" class="form-control" name="nbrchambres" [(ngModel)]="reservationObj.nbrchambres">
+          </div>
+
+          
+
+         
+         
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  (click)="updateReservation()">Modifier</button>
+      </div>
+    </div>
+  </div>
+</div>
