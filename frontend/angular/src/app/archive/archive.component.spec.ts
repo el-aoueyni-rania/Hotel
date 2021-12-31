@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CommonModule } from '@angular/common';  
+import { BrowserModule } from '@angular/platform-browser';
+
 import { ArchiveComponent } from './archive.component';
 
 describe('ArchiveComponent', () => {

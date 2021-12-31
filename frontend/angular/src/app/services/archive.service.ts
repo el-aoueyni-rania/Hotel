@@ -33,6 +33,10 @@ this.localStorageService.set('archive',this.archiveContent);
    return this.localStorageService.get('archive');
   }
 
+  clear(){
+    this.archiveContent =[];
+    this.localStorageService.set('archive', this.archiveContent);
+  }
   // public get(){
   //   return this.archiveContent;
 

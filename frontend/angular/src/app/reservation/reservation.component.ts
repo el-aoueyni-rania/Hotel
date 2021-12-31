@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ArchiveService } from "src/app/services/archive.service";
+import { ReservationService } from "src/app/services/reservation.service";
+
+import { FormsModule }   from '@angular/forms';
+
+
+
 
 import reservations from "./../reservations-list";
 
@@ -8,12 +14,19 @@ import { Reservation } from "./../reservation.model";
 
 @Component({
   selector: 'app-reservation',
-  templateUrl: './reservation.component.html',
+  templateUrl: './reservation.component.html', 
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
 
-  public reservationslist: Reservation[]= reservations;
+  public reservationslist: any= [];
+  totalPersonnes: number = 0;
+
+  reservationObj={
+    clientname: ""
+   
+  }
+
 
 //public archiveContent: any[] =[];
 
@@ -29,16 +42,51 @@ export class ReservationComponent implements OnInit {
   // };
 
   constructor(
-    private archiveService: ArchiveService
+  
+    private archiveService: ArchiveService,
+    private reservationService: ReservationService,
+    
   ) { }
 
   ngOnInit(): void {
 
+this.compterTotalPersonnes();
+
+// this.reservationService.all().subscribe(
+
+//   res => this.reservationslist =res
+
+// );
+this.getLatestReservation();
+
+  }
+
+  ajouter(formObj: Reservation ){
+    this.reservationService.create(formObj).subscribe((response)=>{
+      this.getLatestReservation();
+     }
+     );}
+
+     supprimer(reservation: any){
+this.reservationService.delete(reservation).subscribe(()=>{
+  this.getLatestReservation();
+});
+     }
+     modifier(){
+
+     }
+
+     getLatestReservation(){
+       this.reservationService.all().subscribe((response)=>{
+         this.reservationslist = response
+       });
+     }
+  
 
 
 //this.archiveContent = this.archiveService.get();
 //console.log(this.reservationslist)
-  }
+
 
   public addToArchive(id: string): void {
 
@@ -52,4 +100,18 @@ export class ReservationComponent implements OnInit {
 
 
 }
+
+compterTotalPersonnes(){
+  // for(let index=0; index<this.reservationslist.length; index++){
+  //    this.totalPersonnes = this.reservationslist[index].nbradultes + this.reservationslist[index].nbrenfants;
+  //  }
+
+  this.reservationslist.forEach((item: { nbrenfants: number; nbradultes: number;})=>{
+
+     this.totalPersonnes = item.nbrenfants + item.nbradultes;
+   }
+
+   );
+}
+
 }

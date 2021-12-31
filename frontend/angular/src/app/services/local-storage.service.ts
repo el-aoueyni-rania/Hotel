@@ -9,7 +9,7 @@ export class LocalStorageService {
 
   get (itemName: string){
     console.log(itemName);
-return JSON.parse(localStorage.getItem(itemName) || '') || [];
+return JSON.parse(localStorage.getItem(itemName) || '[]') || [];
   }
 
   set(itemName: string, item: any){

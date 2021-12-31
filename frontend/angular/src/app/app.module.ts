@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common'; 
 
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 // import { RestaurationComponent } from './restauration/restauration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormsModule ,ReactiveFormsModule}   from '@angular/forms';
+
 //import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 // import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 // import { ReservationComponent } from './reservation/reservation.component';
@@ -33,8 +37,12 @@ const routes: Routes = [] ;
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ], 
   providers: [],
   bootstrap: [AppComponent]
 })

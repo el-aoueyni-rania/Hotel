@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { CommonModule } from '@angular/common'; 
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule ,ReactiveFormsModule }   from '@angular/forms';
 
 
 const routes: Routes = [
@@ -24,12 +27,14 @@ const routes: Routes = [
 ] ;
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes) , CommonModule, BrowserModule,FormsModule,ReactiveFormsModule],
+
   exports: [RouterModule],
   declarations: [
     RestaurationComponent,
     UtilisateurComponent,
     ReservationComponent,
+    ArchiveComponent,
     ActiviteComponent,
     HomeComponent
   ]
@@ -37,3 +42,4 @@ const routes: Routes = [
 export class AppRoutingModule { 
   
 }
+class MyComponentModule {}
