@@ -32,10 +32,11 @@
                 <small class="text-muted"><label  class="card-text">Date d'arrivée est : {{reservation.datearrivee}}</label>
                 </small>
                 <br>
+                <br>
                   <div class="btn-group">
-                    <button (click)="modifier()" type="button" class="btn btn-secondary">Modifier</button>
+                    <button (click)="modifier(reservation)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModall">Modifier</button>
                     <button (click)="supprimer(reservation.id)"type="button" class="btn btn-danger">Supprimer</button>
-                  
+
                 </div>
                 <hr>
                 
@@ -43,6 +44,7 @@
                   <div class="btn-group">
                     <button routerLink="/reservation/{{reservation.id}}" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
                     <button (click)="addToArchive(reservation.id)"type="button" class="btn btn-sm btn-outline-secondary">Ajouter dans l'archive</button>
+                
                   </div>
                   
                 </div>
@@ -71,27 +73,27 @@
         <form  #myForm="ngForm">
           <div class="mb-3">
             <label  class="form-label" >Nom de client</label>
-            <input type="text" class="form-control"  name="clientname" >
+            <input type="text" class="form-control"  name="clientname" ngModel>
           </div>
           <div class="mb-3">
             <label  class="form-label">Date d'arrivée</label>
-            <input type="text" class="form-control" name="datearrivee" >
+            <input type="text" class="form-control" name="datearrivee" ngModel>
           </div>
           <div class="mb-3">
             <label  class="form-label">Nombre de nuits</label>
-            <input type="number" class="form-control" name="nbrnuits" >
+            <input type="number" class="form-control" name="nbrnuits" ngModel>
           </div>
           <div class="mb-3">
             <label  class="form-label">Nombre d'enfants</label>
-            <input type="number" class="form-control" name="nbrenfants" >
+            <input type="number" class="form-control" name="nbrenfants" ngModel>
           </div>
           <div class="mb-3">
             <label  class="form-label">Nombre d'adultes</label>
-            <input type="number" class="form-control" name="nbradultes" >
+            <input type="number" class="form-control" name="nbradultes" ngModel>
           </div>
           <div class="mb-3">
             <label  class="form-label">Nombre de chambres</label>
-            <input type="number" class="form-control" name="nbrchambres" >
+            <input type="number" class="form-control" name="nbrchambres" ngModel>
           </div>
 
           
@@ -105,6 +107,58 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" (click)=ajouter(myForm.value)>Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier la Reservation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form  #myForm="ngForm">
+          <div class="mb-3">
+            <label  class="form-label" >Nom de client</label>
+            <input type="text" class="form-control"  name="clientname" [(ngModel)]="reservationObj.clientname">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Date d'arrivée</label>
+            <input type="text" class="form-control" name="datearrivee" [(ngModel)]="reservationObj.datearrivee">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre de nuits</label>
+            <input type="number" class="form-control" name="nbrnuits" [(ngModel)]="reservationObj.nbrnuits">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre d'enfants</label>
+            <input type="number" class="form-control" name="nbrenfants" [(ngModel)]="reservationObj.nbrenfants">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre d'adultes</label>
+            <input type="number" class="form-control" name="nbradultes" [(ngModel)]="reservationObj.nbradultes">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Nombre de chambres</label>
+            <input type="number" class="form-control" name="nbrchambres" [(ngModel)]="reservationObj.nbrchambres">
+          </div>
+
+          
+
+         
+         
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  (click)="updateReservation()">Modifier</button>
       </div>
     </div>
   </div>

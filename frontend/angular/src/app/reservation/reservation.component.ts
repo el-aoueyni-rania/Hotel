@@ -23,7 +23,14 @@ export class ReservationComponent implements OnInit {
   totalPersonnes: number = 0;
 
   reservationObj={
-    clientname: ""
+    clientname: "",
+    datearrivee: "",
+    nbrnuits:0,
+    nbrenfants:0,
+    nbradultes:0,
+    nbrchambres:0,
+    id:""
+
    
   }
 
@@ -72,8 +79,8 @@ this.reservationService.delete(reservation).subscribe(()=>{
   this.getLatestReservation();
 });
      }
-     modifier(){
-
+     modifier(reservation: Reservation){
+         this.reservationObj = reservation;
      }
 
      getLatestReservation(){
@@ -82,7 +89,11 @@ this.reservationService.delete(reservation).subscribe(()=>{
        });
      }
   
-
+updateReservation(){
+  this.reservationService.update(this.reservationObj).subscribe(()=>{
+    this.getLatestReservation();
+  })
+}
 
 //this.archiveContent = this.archiveService.get();
 //console.log(this.reservationslist)

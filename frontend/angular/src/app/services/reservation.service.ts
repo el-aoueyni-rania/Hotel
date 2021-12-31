@@ -43,9 +43,9 @@ export class ReservationService {
  * @param id  reservation id to update
  * @param reservation new reservation data
  */
-  update(id: string, reservation: any){
+  update(reservation: any){
 
-    return this.http.put(this.apiUrl + '/' + id, reservation);
+    return this.http.put(this.apiUrl + '/' + reservation.id, reservation);
   }
 /**
  * 
