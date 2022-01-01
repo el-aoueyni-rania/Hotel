@@ -16,7 +16,7 @@
 
       <div class="container">
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2.8 g-3"    >
+<div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3"    >
     
           <div class="col" *ngFor="let reservation of reservationslist"  >
             
@@ -25,24 +25,20 @@
               <div class="card-body">
 
 
-                <label  class="card-text">Reservation d'id : {{reservation._id}}</label><br>
-                <label  class="card-text">Nom de client est: {{reservation.clientname}}</label>
+                <label  class="card-text"><strong> Reservation d'id :</strong> {{reservation._id}}</label><br>
+                <label  class="card-text"><strong>Nom de client est:</strong> {{reservation.clientname}}</label>
                 <br>
                 <br>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2.8 g-4"    >
-                <label  class="card-text">Nombre des nuits est: {{reservation.nbrnuits}}</label>
-                <label  class="card-text">Nombre des chambres est : {{reservation.nbrchambres}}</label><br>
-                <label  class="card-text">Nombre d'adultes est: {{reservation.nbradultes}}</label>
-                <label  class="card-text">Nombre d'enfants est: {{reservation.nbrenfants}}</label>
-                </div>
+              
 
-                <small class="text-muted"><label  class="card-text">Date d'arrivée est : {{reservation.datearrivee}}</label>
+                <small class="text-muted"><label  class="card-text"><strong>Date d'arrivée est : </strong>{{reservation.datearrivee}}</label>
                 </small>
                 <br>
                 <br>
                   <div class="btn-group">
                     <button (click)="modifier(reservation)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModall">Modifier</button>
                     <button (click)="supprimer(reservation._id)"type="button" class="btn btn-danger">Supprimer</button>
+                    <button (click)="getReservation(reservation)"type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModall3">Détails</button>
 
                 </div>
                 <hr>
@@ -166,6 +162,31 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary"  (click)="updateReservation()">Modifier</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModall3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Plus D'informations...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col"   >
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2.8 g-4"    >
+            <label  class="card-text">Nombre des nuits est: {{reserv.nbrnuits}}</label>
+            <label  class="card-text">Nombre des chambres est : {{reserv.nbrchambres}}</label><br>
+            <label  class="card-text">Nombre d'adultes est: {{reserv.nbradultes}}</label>
+            <label  class="card-text">Nombre d'enfants est: {{reserv.nbrenfants}}</label>
+            </div>        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

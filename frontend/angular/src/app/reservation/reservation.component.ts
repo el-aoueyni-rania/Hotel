@@ -31,6 +31,15 @@ export class ReservationComponent implements OnInit {
     nbrchambres:0
   }
 
+  reserv={
+    clientname: "",
+    datearrivee: "",
+    nbrnuits:0,
+    nbrenfants:0,
+    nbradultes:0,
+    nbrchambres:0
+  }
+
 
 //public archiveContent: any[] =[];
 
@@ -83,6 +92,13 @@ this.reservationService.delete(reservation).subscribe(()=>{
      getLatestReservation(){
        this.reservationService.all().subscribe((response)=>{
          this.reservationslist = response
+       });
+     }
+
+     getReservation(reservation: Reservation){
+       this.reservationService.get(reservation).subscribe((response)=>{
+         this.getLatestReservation();
+         this.reserv=reservation;
        });
      }
   

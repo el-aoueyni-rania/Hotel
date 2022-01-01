@@ -28,9 +28,9 @@ export class ReservationService {
  * 
  * @param id : reservation id
  */
-  get(id : string){
+  get(reservation: any){
 
-    return this.http.get(this.apiUrl + '/' + id);
+    return this.http.get(this.apiUrl + '/' + reservation._id, reservation);
   }
 /**
  * 
