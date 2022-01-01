@@ -28,10 +28,7 @@ export class ReservationComponent implements OnInit {
     nbrnuits:0,
     nbrenfants:0,
     nbradultes:0,
-    nbrchambres:0,
-    id:""
-
-   
+    nbrchambres:0
   }
 
 
