@@ -81,7 +81,7 @@ class _reservationState extends State<reservation> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Liste des reservations :'),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black12,
 
       ) ,
       body: loading ? waitingScreen(): reservationsList()
@@ -102,17 +102,92 @@ class _reservationState extends State<reservation> {
     );
   }
   Widget reservationsList(){
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text("DATA Ok! ${_reservations[0].clientname}"),
-          const Padding(padding: EdgeInsets.only(bottom: 25)),
+    return ListView.builder(
+      itemCount: _reservations.length,
 
+      itemBuilder: (context, index) {
+        Reservation reservation = _reservations[index];
+        return Container(
+          child: Container(
+            margin:
+            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+              color: Color(0xff264e70),
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Id du reservation : " +
+                      reservation.id,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Nom du client : " +
+                      reservation.clientname,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Nombre des chambres : " + reservation.nbrchambres.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Nombre des nuits : " + reservation.nbrnuits.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
 
-        ],
-      ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Nombre des adultes : " +
+                      reservation.nbradultes.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
 
-    );
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Nombre des enfants : " +
+                      reservation.nbrenfants.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ), SizedBox(height: 20),
+                Text(
+                  "Date d'arrivée : " +
+                      reservation.datearrivee,
+
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+
+                ),
+              ],
+            ),
+          ),
+        );
+      });
   }
 }
