@@ -89,6 +89,8 @@ this.reservationService.delete(reservation).subscribe(()=>{
 updateReservation(){
   this.reservationService.update(this.reservationObj).subscribe(()=>{
     this.getLatestReservation();
+
+    console.log(this.reservationService)
   })
 }
 

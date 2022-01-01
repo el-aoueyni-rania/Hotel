@@ -48,7 +48,7 @@ export class ReservationService {
  */
   update(reservation: any){
 
-    return this.http.put(this.apiUrl + '/' + reservation.id, reservation);
+    return this.http.put(this.apiUrl + '/' + reservation._id, reservation);
   }
 /**
  * 
