@@ -31,5 +31,10 @@ router.get('/:id',(req, res, next) => {
           .catch(error => res.status(400).json({ error }));
       });
 
+      router.delete('/:id',(req, res, next) => {
+        Reservation.deleteOne({ _id: req.params.id })
+          .then(() => res.status(200).json({ message: 'Reservation deleted !'}))
+          .catch(error => res.status(400).json({ error }));
+      });
 
 module.exports = router;
