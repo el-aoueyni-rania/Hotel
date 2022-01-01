@@ -1,8 +1,8 @@
 const express = require ('express');
 
 const mongoose =require('mongoose');
-const Reservation = require('./models/Reservation');
 
+const reservationRouter = require ('./routes/reservations');
 
 const app= express();
 
@@ -22,12 +22,8 @@ app.use((req,res,next)=> {
 
 });
 
-app.get('/api/reservations',(req, res)=>{
-   
-    Reservation.find()
-       .then(reservations => res.status(200).json(reservations))
-       .catch(err => res.status(400).json({error: err.message}));
+app.use('/api/reservations',reservationRouter);
 
-});
+
 
 module.exports =app;
