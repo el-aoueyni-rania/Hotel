@@ -3,6 +3,38 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+class Reservation {
+  String id;
+  String clientname;
+  String datearrivee;
+  num nbrnuits;
+  num nbrenfants;
+  num nbradultes;
+  num nbrchambres;
+
+  Reservation({
+    required this.id,
+    required this.clientname,
+    required this.datearrivee,
+    required this.nbrnuits,
+    required this.nbrenfants,
+    required this.nbradultes,
+    required this.nbrchambres
+} );
+
+  factory Reservation.fromJson(Map<String, dynamic> json){
+    return Reservation(
+        id:json['id'] ,
+        clientname:json['_clientname'],
+        datearrivee:json['_datearrivee'],
+        nbrnuits:json['_nbrnuits'],
+        nbrenfants:json['_nbrenfants'],
+        nbradultes:json['_nbradultes'],
+        nbrchambres:json['_nbrchambres']
+    );
+  }
+  
+}
 
 class reservation extends StatefulWidget{
   @override
