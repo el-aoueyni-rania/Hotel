@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
+import 'dart:convert' ;
 
 class Reservation {
   String id;
@@ -24,13 +24,13 @@ class Reservation {
 
   factory Reservation.fromJson(Map<String, dynamic> json){
     return Reservation(
-        id:json['id'] ,
-        clientname:json['_clientname'],
-        datearrivee:json['_datearrivee'],
-        nbrnuits:json['_nbrnuits'],
-        nbrenfants:json['_nbrenfants'],
-        nbradultes:json['_nbradultes'],
-        nbrchambres:json['_nbrchambres']
+        id: json['id'] ,
+        clientname: json['clientname'],
+        datearrivee: json['datearrivee'],
+        nbrnuits: json['nbrnuits'],
+        nbrenfants: json['nbrenfants'],
+        nbradultes:json['nbradultes'],
+        nbrchambres:json['nbrchambres']
     );
   }
   
@@ -62,7 +62,11 @@ class _reservationState extends State<reservation> {
     var response = await http.get(Uri.parse(url));
 
     if(response.statusCode ==200 ){
-      _reservations = convert.jsonDecode(response.body);
+      
+      final parsedData = jsonDecode(response.body).cast<Map<String, dynamic>>();
+
+      _reservations = parsedData.map<Reservation>((json)=> Reservation.fromJson(json)).toList();
+
       setState(() {
         loading=!loading;
       });
@@ -102,7 +106,7 @@ class _reservationState extends State<reservation> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("DATA Ok! ${_reservations[0]}"),
+          Text("DATA Ok! ${_reservations[0].clientname}"),
           const Padding(padding: EdgeInsets.only(bottom: 25)),
 
 
