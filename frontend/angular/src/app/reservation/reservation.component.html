@@ -27,7 +27,14 @@
 
                 <label  class="card-text">Reservation d'id : {{reservation._id}}</label><br>
                 <label  class="card-text">Nom de client est: {{reservation.clientname}}</label>
-                <label  class="card-text">Nombre des personnes est: {{totalPersonnes}}</label>
+                <br>
+                <br>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2.8 g-4"    >
+                <label  class="card-text">Nombre des nuits est: {{reservation.nbrnuits}}</label>
+                <label  class="card-text">Nombre des chambres est : {{reservation.nbrchambres}}</label><br>
+                <label  class="card-text">Nombre d'adultes est: {{reservation.nbradultes}}</label>
+                <label  class="card-text">Nombre d'enfants est: {{reservation.nbrenfants}}</label>
+                </div>
 
                 <small class="text-muted"><label  class="card-text">Date d'arrivée est : {{reservation.datearrivee}}</label>
                 </small>
