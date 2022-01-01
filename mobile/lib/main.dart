@@ -4,7 +4,6 @@ import 'package:mobile/reservation.dart';
 import 'package:mobile/restauration.dart';
 import 'package:mobile/activite.dart';
 
-import 'package:http/http.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +36,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+
+
+
+
+
+
+
   int _currentIndex = 0;
   final List<Widget> _children = [
     home(),
