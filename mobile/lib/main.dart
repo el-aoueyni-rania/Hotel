@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/home.dart';
 import 'package:mobile/reservation.dart';
 import 'package:mobile/restauration.dart';
+import 'package:mobile/activite.dart';
+
 import 'package:http/http.dart';
 
 void main() {
@@ -36,7 +38,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
-  final List<Widget> _children = [home(), reservation(), MyAppRestaurations()];
+  final List<Widget> _children = [
+    home(),
+    reservation(),
+    MyAppRestaurations(),
+    activite()
+  ];
 
   void onTappedBar(int index) {
     setState(() {
@@ -48,7 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title , style: TextStyle( color: Colors.white, ),),
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: new Theme(
@@ -69,11 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(Icons.restaurant, color: Colors.white),
                 label: 'Restaurations'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle, color: Colors.white),
-                label: 'Users'),
-            BottomNavigationBarItem(
                 icon: Icon(Icons.local_activity, color: Colors.white),
                 label: 'Activities'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle, color: Colors.white),
+                label: 'Users'),
           ],
         ),
       ),
