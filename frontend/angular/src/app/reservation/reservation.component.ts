@@ -77,7 +77,10 @@ this.getLatestReservation();
   ajouter(formObj: Reservation ){
     this.reservationService.create(formObj).subscribe((response)=>{
       this.getLatestReservation();
+
+      
      }
+     
      );}
 
      supprimer(reservation: any){
