@@ -13,6 +13,8 @@ mongoose.connect('mongodb://localhost:27017/Hotel',
   .then(() => console.log('Connected successfully to MongoDB !'))
   .catch(() => console.log('Connection failed to MongoDB !'));
 
+  app.use(express.json());
+
 app.use((req,res,next)=> {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
