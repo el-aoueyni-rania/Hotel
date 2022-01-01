@@ -11,6 +11,7 @@ import {  reservations } from "src/app/reservations-list";
 })
 export class ReservationdetailsComponent implements OnInit {
 
+  
   public reservation?: Reservation;
 
   constructor( private route: ActivatedRoute,
