@@ -17,7 +17,7 @@ export class ReservationService {
   constructor( private http: HttpClient) { }
 
   /**
-   * Get All reservations 
+   * Get All reservations   
    */
   all(){
 

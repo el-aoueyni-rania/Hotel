@@ -1,10 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/home.dart';
 import 'package:mobile/reservation.dart';
 import 'package:mobile/restauration.dart';
 import 'package:mobile/activite.dart';
-
-import 'package:http/http.dart';
+import 'package:mobile/avis.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,12 +37,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+
+
+
+
+
+
+
   int _currentIndex = 0;
   final List<Widget> _children = [
     home(),
     reservation(),
     MyAppRestaurations(),
-    activite()
+    activite(),
+    avis(),
   ];
 
   void onTappedBar(int index) {
@@ -84,8 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(Icons.local_activity, color: Colors.white),
                 label: 'Activities'),
             BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.smiley, color: Colors.white),
+                label: 'Avis'),
+            BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle, color: Colors.white),
                 label: 'Users'),
+
           ],
         ),
       ),
