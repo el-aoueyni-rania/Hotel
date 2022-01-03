@@ -1,1 +1,31 @@
-<h1>activite works!</h1>
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Activities List</h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+       
+        <div class="col" *ngFor="let activite of activitiesList">
+          <div class="card shadow-sm">  
+            <div class="card-body">
+                  <label  class="card-text">Id de l'activité : {{activite.id}}</label><br>
+              <label  class="card-text">Nom de l'activité : {{activite.nom_activite}}</label><br>
+                <div class="btn-group">
+                  <button routerLink="/activite-details/{{activite.id}}" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

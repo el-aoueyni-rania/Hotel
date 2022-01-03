@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule ,ReactiveFormsModule}   from '@angular/forms';
+import { ActiviteDetailsComponent } from './activite/activite-details/activite-details.component';
 
 //import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 // import { UtilisateurComponent } from './utilisateur/utilisateur.component';
@@ -26,6 +27,7 @@ const routes: Routes = [] ;
     AppComponent,
     NavbarComponent,
     NotFoundComponent,
+    ActiviteDetailsComponent,
    // ReservationdetailsComponent,
     // RestaurationComponent,
     // UtilisateurComponent,
