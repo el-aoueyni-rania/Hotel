@@ -1,1 +1,33 @@
-<h1>utilisateur works!</h1>
+<main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Utilisateurs List</h1>
+        </div>
+      </div>
+    </section>
+  
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <!-- *ngFor="let utilisateur of utilisateursList" -->
+          <div class="col" *ngFor="let utilisateur of utilisateursList">
+            <div class="card shadow-sm">  
+              <div class="card-body">
+                    <label  class="card-text">Id de l'utilisateur: {{utilisateur.userId}}</label><br>
+                <label  class="card-text">Nom utilisateur : {{utilisateur.username}}</label><br>
+                <!-- <label  class="card-text">mail utilisateur : {{utilisateur.email}}</label><br> -->
+
+                  <div class="btn-group">
+                 <button routerLink="/utilisateur-details/{{utilisateur.userId}}" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
+
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
