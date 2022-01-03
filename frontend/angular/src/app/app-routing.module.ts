@@ -9,6 +9,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ReservationdetailsComponent } from './reservation/reservationdetails/reservationdetails.component';
 import { RestaurationDetailsComponent } from './restauration/restauration-details/restauration-details.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { ActiviteDetailsComponent } from './activite/activite-details/activite-details.component';
+
 import { CommonModule } from '@angular/common'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule ,ReactiveFormsModule }   from '@angular/forms';
@@ -21,6 +23,7 @@ const routes: Routes = [
   {path: 'reservation', component: ReservationComponent},
   {path: 'restauration-details/:id' , component: RestaurationDetailsComponent},
   {path: 'reservation/:id', component: ReservationdetailsComponent},
+  {path: 'activite-details/:id' , component: ActiviteDetailsComponent},
   {path: 'archive', component: ArchiveComponent},
 
   {path: 'activite', component: ActiviteComponent},
