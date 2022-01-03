@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     home(),
     reservation(),
     MyAppRestaurations(),
-    activite(),
+    MyAppActivities(),
     avis(),
   ];
 
