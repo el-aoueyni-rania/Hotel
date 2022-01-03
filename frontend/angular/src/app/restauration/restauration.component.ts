@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import restaurations from '../restaurations-list';
 import { Restauration } from '../restauration.model';
+import { ConfirmationService } from "src/app/services/confirmation.service"
 @Component({
   selector: 'app-restauration',
   templateUrl: './restauration.component.html',
@@ -9,10 +10,20 @@ import { Restauration } from '../restauration.model';
 export class RestaurationComponent implements OnInit {
 
   public restaurationsList : Restauration[] = restaurations;
-  constructor() { }
+  //public cartContent: any[]= [] ;
+
+  constructor(
+    private confirmationService: ConfirmationService
+  ) { }
 
   ngOnInit(): void {
-    //console.log(this.restaurationsList);
+   //this.cartContent = this.confirmationService.get();
+  }
+
+  // DRY : Don't Repeat Yourself
+  public addToCart(id : String):void{
+
+   this.confirmationService.add(id);
   }
 
 }

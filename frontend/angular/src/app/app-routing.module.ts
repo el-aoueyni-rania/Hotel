@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RestaurationComponent } from './restauration/restauration.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ActiviteComponent } from './activite/activite.component';
@@ -20,6 +21,7 @@ import { FormsModule ,ReactiveFormsModule }   from '@angular/forms';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   { path: 'restauration', component: RestaurationComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
   { path: 'utilisateur', component: UtilisateurComponent },
   {path: 'reservation', component: ReservationComponent},
   {path: 'restauration-details/:id' , component: RestaurationDetailsComponent},
@@ -39,6 +41,7 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [
     RestaurationComponent,
+    ConfirmationComponent,
     UtilisateurComponent,
     ReservationComponent,
     ArchiveComponent,

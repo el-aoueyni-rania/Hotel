@@ -11,15 +11,14 @@
     <div class="album py-5 bg-light">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-         
           <div class="col" *ngFor="let restauration of restaurationsList">
             <div class="card shadow-sm">  
               <div class="card-body">
-                    <label  class="card-text">Id de la restauration : {{restauration.id}}</label><br>
-                <label  class="card-text">Nom du restaurant : {{restauration.nom_restaurant}}</label><br>
+                    <label  class="card-text"> <strong> Id de la restauration : </strong>{{restauration.id}}</label><br>
+                <label  class="card-text"> <strong> Nom du restaurant : </strong> {{restauration.nom_restaurant}}</label><br>
                   <div class="btn-group">
-                    <button routerLink="/restauration-details/{{restauration.id}}" type="button" class="btn btn-sm btn-outline-secondary">plus d'informations</button>
-
+                    <button routerLink="/restauration-details/{{restauration.id}}" type="button" class="btn btn-sm btn-outline-secondary">Plus d'informations</button>
+                    <button (click)="addToCart(restauration.id)" type="button" class="btn btn-sm btn-outline-secondary">Confirmation du restauration </button>
                   </div>
               </div>
             </div>
@@ -27,5 +26,4 @@
         </div>
       </div>
     </div>
-  
   </main>
