@@ -10,6 +10,8 @@ import { ReservationdetailsComponent } from './reservation/reservationdetails/re
 import { RestaurationDetailsComponent } from './restauration/restauration-details/restauration-details.component';
 import { UtilisateurDetailsComponent } from './utilisateur/utilisateur-details/utilisateur-details.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { ActiviteDetailsComponent } from './activite/activite-details/activite-details.component';
+
 import { CommonModule } from '@angular/common'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule ,ReactiveFormsModule }   from '@angular/forms';
@@ -22,6 +24,7 @@ const routes: Routes = [
   {path: 'reservation', component: ReservationComponent},
   {path: 'restauration-details/:id' , component: RestaurationDetailsComponent},
   {path: 'reservation/:id', component: ReservationdetailsComponent},
+  {path: 'activite-details/:id' , component: ActiviteDetailsComponent},
   {path: 'archive', component: ArchiveComponent},
   {path: 'utilisateur-details/:userId' , component: UtilisateurDetailsComponent},
 
