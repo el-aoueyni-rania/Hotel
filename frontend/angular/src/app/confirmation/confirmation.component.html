@@ -1,0 +1,39 @@
+<div *ngIf="confirmContent.length == 0; else elseBlock" class="alert alert-danger">
+    La Liste des Commandes confirmés est vide
+  </div> 
+  <ng-template #elseBlock> 
+
+    <div class="row">
+      <div class="col-md-9">
+        <button class="btn btn-outline-danger" (click)="clearConfirmation()">
+          Clear Confirmation
+        </button>
+      </div>
+    </div>
+    <br>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom du restaurant</th>
+          <th scope="col">Menu</th>
+          <th scope="col">Fruits</th>
+          <th scope="col">Boissons</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let restconfirm of confirmContent;index as i"> 
+          <th scope="row">{{ restconfirm.id}}</th>
+          <td>{{ restconfirm.nom_restaurant}}</td>
+          <td>{{ restconfirm.menu}}</td>
+          <td>{{ restconfirm.fruits}}</td>
+          <td>{{ restconfirm.boissons}}</td>
+        </tr>
+      </tbody>
+      <thead class="thead-light">
+       
+        
+      </thead>
+    </table>
+   </ng-template>

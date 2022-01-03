@@ -2,20 +2,26 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from "src/app/services/local-storage.service"
 import { Restauration } from "src/app/restauration.model"
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ConfirmationService {
 
-  public confirmContent : any = [];
-  constructor(
-    private localStorageService: LocalStorageService
 
-  ) { 
+  public confirmContent : any = [];
+
+  constructor(
+
+    private localStorageService: LocalStorageService
+  ) {
+
     this.confirmContent = this.load();
+
   }
 
   add(confirmationId? : String){
+    
     this.confirmContent.filter((elem: Restauration) => elem.id === confirmationId)[0] ? this.confirmContent.filter((elem: Restauration) => elem.id === confirmationId)[0].commande : this.confirmContent.push({id : confirmationId, commande: 1});
     // equivalent to
     /* if(this.cartContent.filter(elem => elem.id == id ) [0] ){
