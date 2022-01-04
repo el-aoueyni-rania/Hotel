@@ -28,7 +28,7 @@ class utilisateur {
 
 Future<List<utilisateur>> fetchUtilisateur() async {
   final response =
-      await http.get(Uri.parse('http://192.168.1.186:8089/utilisateurs'));
+      await http.get(Uri.parse('http://192.168.43.174:8089/utilisateurs'));
 
   if (response.statusCode == 200) {
     final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
