@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/home.dart';
 import 'package:mobile/reservation.dart';
 import 'package:mobile/restauration.dart';
+import 'package:mobile/utilisateur.dart';
 import 'package:mobile/activite.dart';
 import 'package:mobile/avis.dart';
 
