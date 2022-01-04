@@ -8,21 +8,27 @@ List<utilisateur> postFromJson(String str) => List<utilisateur>.from(
     json.decode(str).map((x) => utilisateur.fromMap(x)));
 
 class utilisateur {
-  int userId;
-  String username;
+  int id;
+  String name;
+  String email;
   String password;
+	String role;
  
 
   utilisateur({
-    required this.userId,
-    required this.username,
+    required this.id,
+    required this.name,
+    required this.email,
     required this.password,
+    required this.role,
   });
 
   factory utilisateur.fromMap(Map<String, dynamic> json) => utilisateur(
-        userId: json["userId"],
-        username: json["username"],
+        id: json["id"],
+        name: json["name"],
+        email: json["email"],
         password: json["password"],
+        role: json["role"],
       );
 }
 
@@ -94,7 +100,7 @@ class _MyAppState extends State<MyAppUtilisateurs> {
                           children: [
                             Text(
                               "Id utilisateur : " +
-                                  "${snapshot.data![index].userId}",
+                                  "${snapshot.data![index].id}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
@@ -104,7 +110,7 @@ class _MyAppState extends State<MyAppUtilisateurs> {
                             SizedBox(height: 10),
                             Text(
                               "nom utilisateur : " +
-                                  "${snapshot.data![index].username}",
+                                  "${snapshot.data![index].name}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18.0,
@@ -112,6 +118,17 @@ class _MyAppState extends State<MyAppUtilisateurs> {
                               ),
                             ),
                             SizedBox(height: 10),
+                             Text(
+                              "email utilisateur : " +
+                                  "${snapshot.data![index].email}",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                          
                           
                           
                           
