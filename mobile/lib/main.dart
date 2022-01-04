@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
     MyAppRestaurations(),
     activite(),
     avis(),
+    MyAppUtilisateurs(),
   ];
 
   void onTappedBar(int index) {
